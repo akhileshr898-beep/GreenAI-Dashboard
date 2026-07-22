@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GreenAI Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>🌿 GreenAI</h2>
+
+        <ul>
+
+            <li>🏠 Dashboard</li>
+
+            <li>🤖 AI Models</li>
+
+            <li>📊 Analytics</li>
+
+            <li>📄 Reports</li>
+
+            <li>⚙ Settings</li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <header>
+
+            <h1>Green AI Dashboard</h1>
+
+            <p>
+                Monitor AI Energy Consumption & Carbon Footprint
+            </p>
+
+        </header>
+
+        <!-- KPI Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>⚡ Energy</h3>
+
+                <h1 id="energyValue">0 Wh</h1>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🌍 Carbon</h3>
+
+                <h1 id="carbonValue">0 gCO₂</h1>
+
+            </div>
+
+            <div class="card">
+
+                <h3>💰 Cost</h3>
+
+                <h1 id="costValue">₹0</h1>
+
+            </div>
+
+            <div class="card">
+
+                <h3>♻ Green Score</h3>
+
+                <h1 id="scoreValue">100</h1>
+
+            </div>
+
+        </div>
+
+        <!-- Calculator -->
+
+        <div class="panel">
+
+            <h2>AI Calculator</h2>
+
+            <div class="inputs">
+
+                <select id="model">
+
+                    <option>GPT-4</option>
+                    <option>GPT-4o</option>
+                    <option>Llama 3 8B</option>
+                    <option>Mistral 7B</option>
+                    <option>Gemma 2B</option>
+                    <option>Phi-3 Mini</option>
+
+                </select>
+
+                <select id="country">
+
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>Germany</option>
+                    <option>Norway</option>
+                    <option>China</option>
+
+                </select>
+
+                <select id="source">
+
+                    <option>Coal</option>
+                    <option>Solar</option>
+                    <option>Wind</option>
+                    <option>Hydro</option>
+                    <option>Nuclear</option>
+
+                </select>
+
+                <select id="task">
+
+                    <option>Chatbot</option>
+                    <option>Code Generation</option>
+                    <option>Translation</option>
+                    <option>Image Analysis</option>
+
+                </select>
+
+                <input type="number"
+                       id="runs"
+                       value="10"
+                       min="1">
+
+                <button onclick="calculate()">
+
+                    Calculate
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+        <!-- Recommendation -->
+
+        <div class="panel">
+
+            <h2>🌱 AI Recommendation</h2>
+
+            <h1 id="recommendation">
+
+                --
+
+            </h1>
+
+        </div>
+        <div class="panel">
+
+            <h2>🧠 AI Sustainability Insights</h2>
+
+            <div id="insights">
+
+                Click Calculate to generate AI insights.
+
+            </div>
+
+        </div>
+
+        <!-- Charts -->
+        <div class="chartBox">
+
+            <h2>Energy vs Carbon</h2>
+
+            <canvas id="energyChart"></canvas>
+
+        </div>
+
+        <div class="chartBox">
+
+            <h2>Model Comparison</h2>
+
+            <canvas id="comparisonChart"></canvas>
+
+        </div>
+
+    </div>
+        <!-- History -->
+
+    <div class="panel">
+
+        <h2>📜 Calculation History</h2>
+
+        <table id="historyTable">
+
+            <thead>
+
+                <tr>
+
+                    <th>Model</th>
+                    <th>Country</th>
+                    <th>Energy</th>
+                    <th>Carbon</th>
+                    <th>Score</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+            </tbody>
+
+        </table>
+        <div class="panel">
+
+            <h2>📊 AI Model Comparison</h2>
+
+            <table id="modelTable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Model</th>
+                        <th>Energy</th>
+                        <th>Carbon</th>
+                        <th>Accuracy</th>
+                        <th>Memory</th>
+                        <th>Green Score</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class="panel">
+
+            <h2>📈 Carbon Emission Trend</h2>
+
+            <canvas id="trendChart"></canvas>
+
+        </div>
+        <div class="panel">
+
+            <h2>🏆 Green AI Leaderboard</h2>
+
+            <table id="leaderboardTable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Rank</th>
+
+                        <th>Model</th>
+
+                        <th>Green Score</th>
+
+                        <th>Badge</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                </tbody>
+
+            </table>
+
+        </div>
+        <div style="margin-top:20px;">
+
+            <button onclick="clearHistory()">
+                🗑 Clear History
+            </button>
+
+            <button onclick="exportHistory()">
+                📥 Export CSV
+            </button>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

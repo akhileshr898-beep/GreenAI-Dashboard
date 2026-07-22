@@ -1,0 +1,295 @@
+/* ===========================
+   RESET
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+    background: #08121f;
+    color: white;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar {
+    width: 250px;
+    background: #101827;
+    padding: 30px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    box-shadow: 4px 0 20px rgba(0,0,0,.4);
+}
+
+    .sidebar h2 {
+        color: #4ade80;
+        margin-bottom: 50px;
+        font-size: 30px;
+    }
+
+    .sidebar ul {
+        list-style: none;
+    }
+
+    .sidebar li {
+        padding: 18px;
+        margin-bottom: 10px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: .3s;
+        font-size: 18px;
+    }
+
+        .sidebar li:hover {
+            background: #1e293b;
+            color: #4ade80;
+            transform: translateX(8px);
+        }
+
+/* ===========================
+   MAIN
+=========================== */
+
+.main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 40px;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+    header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    header p {
+        color: #94a3b8;
+        font-size: 18px;
+    }
+
+/* ===========================
+   KPI CARDS
+=========================== */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: rgba(255,255,255,.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+    padding: 30px;
+    transition: .3s;
+}
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0,0,0,.3);
+    }
+
+    .card h3 {
+        color: #4ade80;
+        margin-bottom: 15px;
+    }
+
+    .card h1 {
+        font-size: 42px;
+    }
+
+/* ===========================
+   PANELS
+=========================== */
+
+.panel {
+    background: rgba(255,255,255,.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 35px;
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+    .panel h2 {
+        margin-bottom: 25px;
+    }
+
+/* ===========================
+   INPUTS
+=========================== */
+
+.inputs {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+select, input {
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    width: 220px;
+    background: white;
+}
+
+button {
+    background: #4ade80;
+    color: #08121f;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: .3s;
+    font-weight: bold;
+}
+
+    button:hover {
+        background: #22c55e;
+        transform: scale(1.05);
+    }
+
+/* ===========================
+   CHARTS
+=========================== */
+
+.charts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(450px,1fr));
+    gap: 25px;
+}
+
+.chartBox {
+    background: rgba(255,255,255,.05);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+    .chartBox h2 {
+        margin-bottom: 20px;
+    }
+
+canvas {
+    width: 100% !important;
+    height: 300px !important;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    body {
+        flex-direction: column;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .charts {
+        grid-template-columns: 1fr;
+    }
+
+    .inputs {
+        flex-direction: column;
+    }
+
+    select, input, button {
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+}
+/* ===========================
+   HISTORY TABLE
+=========================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background: #16a34a;
+    color: white;
+    padding: 15px;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    text-align: center;
+}
+
+tr:hover {
+    background: rgba(255,255,255,.05);
+}
+#insights {
+    background: #0f172a;
+    border-left: 6px solid #22c55e;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: white;
+}
+#trendChart {
+    max-height: 400px;
+}
+#leaderboardTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    #leaderboardTable th {
+        background: #22c55e;
+    }
+
+    #leaderboardTable td {
+        padding: 15px;
+        text-align: center;
+    }
+
+    #leaderboardTable tr:nth-child(even) {
+        background: #111827;
+    }
+
+    #leaderboardTable tr:hover {
+        background: #1f2937;
+    }
