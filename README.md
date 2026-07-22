@@ -29,17 +29,6 @@ The application combines a Flask REST API with an interactive JavaScript dashboa
 
 ---
 
-## 📸 Screenshots
-
-> Add screenshots of your application here.
-
-Example:
-
-- Dashboard
-- Leaderboard
-- Charts
-- AI Recommendation
-
 ---
 
 ## 🛠 Tech Stack
